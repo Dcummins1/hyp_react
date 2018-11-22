@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 // import { Provider } from 'mobx-react';
 import './index.css';
-import App from './components/App';
+import App from './components/pages/content/App';
 import store from './store';
 // import store from './stores';
 import * as serviceWorker from './serviceWorker';

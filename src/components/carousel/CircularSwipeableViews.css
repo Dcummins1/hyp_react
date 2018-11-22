@@ -1,0 +1,10 @@
+/* .eventUnselected {
+    transform: scale(0.8);
+    transition: ease-in-out transform 0.5s;
+    margin: 0 -25px;
+    overflow: hidden;
+}
+.eventSelected {
+    transition: ease-in-out transform 0.5s;
+    overflow: hidden;
+} */

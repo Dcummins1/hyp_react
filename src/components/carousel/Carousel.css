@@ -1,0 +1,9 @@
+.carouselStepper {
+    height: 100px;
+}
+.carouselSlider {
+    width: 60%;
+}
+.carouselRoot {
+    overflow-x: hidden;
+}

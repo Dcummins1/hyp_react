@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 
 import { PasswordForgetForm } from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
-import withAuthorization from './withAuthorization';
+import withAuthorization from '../../util/withAuthorization';
 
 const AccountPage = ({ authUser }) =>
   <div>

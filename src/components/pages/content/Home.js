@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import withAuthorization from './withAuthorization';
-import { db } from '../firebase';
+import withAuthorization from '../../util/withAuthorization';
+import { db } from '../../../firebase';
 
-
-class AdminPage extends Component {
+class HomePage extends Component {
     componentDidMount() {
       const { onSetUsers } = this.props;
   
@@ -19,8 +18,8 @@ class AdminPage extends Component {
     const { users } = this.props;
     return (
       <div>
-        <h1>Admin</h1>
-        <p>The admin Page is accessible by every signed in admin user.</p>
+        <h1>Home</h1>
+        <p>The Home Page is accessible by every signed in user.</p>
 
         { !!users && <UserList users={users} /> }
       </div>
@@ -45,9 +44,9 @@ const mapStateToProps = (state) => ({
   const mapDispatchToProps = (dispatch) => ({
     onSetUsers: (users) => dispatch({ type: 'USERS_SET', users }),
   });
-const authCondition = (authUser) => !!authUser && authUser.role === 'user';
+const authCondition = (authUser) => !!authUser;
 
 export default compose(
     withAuthorization(authCondition),
     connect(mapStateToProps, mapDispatchToProps)
-  )(AdminPage);
+  )(HomePage);

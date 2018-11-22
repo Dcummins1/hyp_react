@@ -1,0 +1,41 @@
+.mapPinContainer {
+	display: block;
+	position: relative;
+	left: -13px;
+    top: -26px;
+	border-color: red;
+}
+
+.mapPinPoint {
+	height: 14px;
+	width: 14px;
+    border: 7px solid;
+    border-color: inherit;
+	border-top-color: transparent !important;
+	border-left-color: transparent !important;
+	transform: rotate(45deg);
+	display: block;
+	position: relative;
+	left: 8px;
+	top: -12px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.mapPinBody {
+	border: 7px solid;
+	color: transparent;
+    border-radius: 50%;
+    border-color:inherit;
+	position: relative;
+	width: 26px;
+	height: 26px;
+	left: 2px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.emphasis {
+	border-color: blue;
+	z-index: 100;
+}
