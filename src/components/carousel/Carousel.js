@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import Button from '@material-ui/core/Button';
 import CircularSwipableViews from './CircularSwipableViews';
 import "./Carousel.css"
 
@@ -29,8 +25,6 @@ export class Carousel extends Component {
   }
 
   render() {
-    const maxSteps = this.props.items.length;
-
     return (
       <div className="carouselRoot" ref={this.myRef}>
        <CircularSwipableViews
@@ -39,26 +33,6 @@ export class Carousel extends Component {
           onChangeIndex={this.handleStepChange}
           items={this.props.items}>
        </CircularSwipableViews>
-       <MobileStepper
-          steps={maxSteps}
-          position="static"
-          activeStep={ this.props.selected }
-          className="CarouselStepper"
-          nextButton={
-            <Button 
-              size="small" 
-              onClick={(e) => this.handleStepChange(this.props.selected + 1)}>
-              {<KeyboardArrowRight />}
-            </Button>
-          }
-          backButton={
-            <Button 
-              size="small"  
-              onClick={(e) => this.handleStepChange(this.props.selected - 1)}>
-              {<KeyboardArrowLeft />}
-            </Button>
-          }
-        />
       </div>
     );
   }

@@ -4,7 +4,6 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Navigation from '../../nav/Navigation';
 import NavMenu from '../../nav/NavMenu';
 import LandingPage from './Landing';
 import SignUpPage from '../admin/SignUp';
@@ -17,7 +16,6 @@ import AdminPage from '../admin/Admin';
 import * as routes from '../../../constants/routes';
 import withAuthentication from '../../util/withAuthentication';
 import './App.css'
-import Admin from '../admin/Admin';
 
 const App = () =>
   <Router>
