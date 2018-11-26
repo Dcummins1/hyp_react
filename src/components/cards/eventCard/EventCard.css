@@ -1,48 +1,23 @@
 .eventCard {
+    height: 150px;
     display: flex;
-    flex-direction: column;
-    height: 150px;
-    overflow: hidden;
-}
-.eventImageOuter{
-    -ms-transform: skew(0,-10deg); /* IE 9 */
-    -webkit-transform: skew(0,-10deg); /* Safari */
-    transform: skew(0,-10deg); /* Standard syntax */
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    bottom: 50px;
-    height: 150px;
-    max-width: 400px;
-}
-.eventImage {
-    height: 150px;
-    position: relative;
-    top: 40px;
-    flex: 1;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover;
-    -ms-transform: skew(0,10deg); /* IE 9 */
-    -webkit-transform: skew(0,10deg); /* Safari */
-    transform: skew(0,10deg); /* Standard syntax */
+    margin: 10px 5px 10px 5px;
+    border-radius: 3px;
+    border-top: 4px solid #272c34;
+    color: #272c34;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    flex-direction: row;
 }
 .eventDetails {
     flex: 1;
-    position: absolute;
-    padding: 10px;
-    height: 100%;
-    width: 100%;
 }
-.eventLabel {
-    text-align: start;
-    color: black;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: 5px 10px 5px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: xx-large;
-    font-weight: bolder;
+.eventImage {
+    height: 100px;
+    width: 100px;
+    border: 2px solid #272c34;
+    border-radius: 5px;
+}
+.eventDetail {
+    color: #736b6b;
 }

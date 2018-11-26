@@ -17,7 +17,7 @@ export class Carousel extends Component {
 
   componentDidMount() {
     if (this.myRef.current && this.myRef.current.firstElementChild) {
-      this.myRef.current.firstElementChild.style.width = "80%";
+      this.myRef.current.firstElementChild.style.maxWidth = "80%";
       this.myRef.current.firstElementChild.style.marginLeft = "10%";
       this.myRef.current.firstElementChild.style["overflow-x"] = "";
     }

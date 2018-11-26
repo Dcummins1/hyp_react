@@ -10,14 +10,13 @@ import "./EventCard.css"
 	export function EventCard (props) {
 		return (
 			<div className="eventCard">
-                {/* <img className="eventImage" src={props.imgPath} alt={props.label} /> */}
-                <div className="eventImageOuter">
-                    <div className="eventImage" title={props.label} style={{"backgroundImage": "url('" + props.imgPath + "')"}}>
-                    </div>
-                </div>
+                
                 <div className="eventDetails">
                     <div className="eventLabel" title={props.label}>{truncate(props.label)}</div>
+                    <div className="eventDetail">{props.venue}</div>
+                    {typeof props.price === "number" ? <div className="eventDetail">€{props.price.toFixed(2)}</div> : ""}
                 </div>
+                <img className="eventImage" src={props.imgPath} alt={props.label} />
 			</div>
 		)
 	}

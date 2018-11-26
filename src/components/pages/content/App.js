@@ -10,6 +10,7 @@ import SignUpPage from '../admin/SignUp';
 import SignInPage from '../admin/SignIn';
 import PasswordForgetPage from '../admin/PasswordForget';
 import HomePage from './Home';
+import SearchResultsPage from './Search'
 import AccountPage from '../admin/Account';
 import AdminPage from '../admin/Admin';
 
@@ -33,6 +34,7 @@ const App = () =>
         <Route exact path={routes.HOME} component={HomePage} />
         <Route exact path={routes.ACCOUNT} component={AccountPage} />
         <Route exact path={routes.ADMIN} component={AdminPage} />
+        <Route exact path={routes.SEARCH} component={SearchResultsPage} />
       </main>
       <footer></footer>
     </div>

@@ -3,7 +3,7 @@
 	position: relative;
 	left: -13px;
     top: -26px;
-	border-color: red;
+	border-color: #272c34;
 }
 
 .mapPinPoint {
@@ -36,6 +36,6 @@
 }
 
 .emphasis {
-	border-color: blue;
+	border-color: #f50057;
 	z-index: 100;
 }

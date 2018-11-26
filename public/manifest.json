@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hyp",
+  "name": "Hyp - find whats on near you",
   "icons": [
     {
       "src": "favicon.ico",
