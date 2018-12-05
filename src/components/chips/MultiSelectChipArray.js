@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
-import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -14,13 +13,6 @@ const styles = theme => ({
   chip: {
     margin: theme.spacing.unit / 2,
   },
-  button: {
-    position: "fixed",
-    bottom: 0,
-    left: "0",
-    width: "100%",
-    border: "1px solid"
-  }
 });
 
 class MultiSelectChipsArray extends React.Component {
@@ -43,9 +35,6 @@ class MultiSelectChipsArray extends React.Component {
               />);
             })
           }
-          <Button className={classes.button}>
-            Lets Go!
-          </Button>
       </div>
     );
   }

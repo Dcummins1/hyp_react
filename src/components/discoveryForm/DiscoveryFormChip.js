@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { db } from "../../firebase/";
+import * as routes from '../../constants/routes';
 
 import SingleSelectChipsArray from "../chips/SingleSelectChipsArray";
 import MultiSelectChipsArray from "../chips/MultiSelectChipArray";
+import Button from '@material-ui/core/Button';
 
 function mapStateToProps (state) {
     return {
@@ -51,8 +54,11 @@ class DiscoveryFormChip extends React.Component {
             }
             props.initTags(tags);
         });
+        this.submitSearch = this.submitSearch.bind(this);
     }
-
+    submitSearch (e) {
+        this.props.history.push(routes.SEARCH);
+    }
     render () {
         return (
             <div className="discoverRoot">
@@ -70,10 +76,13 @@ class DiscoveryFormChip extends React.Component {
                     <br/>
                     <MultiSelectChipsArray data={this.props.tags} selectionListener={this.props.onTagSelection} color="secondary"/>
                 </div>
+                <Button onClick={this.submitSearch}>
+                    Lets Go!
+                </Button>
             </div>
         );
     }
     
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiscoveryFormChip);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DiscoveryFormChip));
