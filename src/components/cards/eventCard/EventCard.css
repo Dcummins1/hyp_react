@@ -1,13 +1,25 @@
-.eventCard {
+.eventCardRoot {
     height: 150px;
     display: flex;
+    flex-direction: column;
     margin: 10px 5px 10px 5px;
     border-radius: 3px;
     border-top: 4px solid #272c34;
     color: #272c34;
+}
+.MainSegment {
+    display: flex;
+    flex: 1;
     padding: 5px 10px;
     box-sizing: border-box;
     flex-direction: row;
+}
+.tags {
+    display: flex;
+    flex-direction: row;
+}
+.tagChip {
+    margin-right: 5px;
 }
 .eventDetails {
     flex: 1;

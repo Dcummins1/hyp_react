@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DiscoveryForm from "../../discoveryForm/DiscoveryForm"
+import DiscoveryFormChip from "../../discoveryForm/DiscoveryFormChip"
 import './Landing.css';
 
 class Landing extends Component {
@@ -7,7 +7,7 @@ class Landing extends Component {
     return (
       <div className="landingBody">
         <h1>What would you like to do?</h1>
-          <DiscoveryForm />
+          <DiscoveryFormChip />
       </div>
     );
   }

@@ -32,5 +32,24 @@ export const getActivities = () => {
   
 }
 
+export const getCollection = (collectionName) => {
+  return new Promise((resolve) => {
+    const colRef = firestore.collection(collectionName);
+    colRef.get().then((col) => {
+      const dataProms = [];
+      const data = [];
+      for (const doc in col.docs) {
+        dataProms.push(col.docs[doc].ref.get().then((docData) => {
+          data.push(docData.data());
+        }));
+      }
+      Promise.all(dataProms).then(() => {
+        resolve(data)
+      });
+    });
+  });
+  
+}
+
 
 // Other Entity APIs ...
