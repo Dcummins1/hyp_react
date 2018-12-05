@@ -43,17 +43,21 @@ function mapDispatchToProps (dispatch) {
 class DiscoveryFormChip extends React.Component {
     constructor (props) {
         super(props);
-        db.getCollection("areas").then((areas) => {
-          props.initAreas(areas);
-        });
-        db.getCollection("tags").then((tagNames) => {
-            var tags = [];
-            for(let tag in tagNames) {
-                var tagObj = tagNames[tag];
-                tags.push({...tagObj, selected: false, index: tag});
-            }
-            props.initTags(tags);
-        });
+        if (!props.areas || props.areas.length == 0) {
+            db.getCollection("areas").then((areas) => {
+                props.initAreas(areas);
+              });
+        }
+        if (!props.tags || props.tags.length == 0) {
+            db.getCollection("tags").then((tagNames) => {
+                var tags = [];
+                for(let tag in tagNames) {
+                    var tagObj = tagNames[tag];
+                    tags.push({...tagObj, selected: false, index: tag});
+                }
+                props.initTags(tags);
+            });
+        }
         this.submitSearch = this.submitSearch.bind(this);
     }
     submitSearch (e) {
