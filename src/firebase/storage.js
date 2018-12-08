@@ -6,7 +6,7 @@ const imageMap = {};
 export const getImageUrl = (storageLocation) => {
     // Create a reference from a Google Cloud Storage URI
     if (imageMap[storageLocation]) {
-        return promises.resolve(imageMap[storageLocation]);
+        return Promise.resolve(imageMap[storageLocation]);
     }
     var gsReference = storage.refFromURL(storageLocation)
 
