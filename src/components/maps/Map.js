@@ -9,11 +9,11 @@ import { maps } from "../../config"
 		let centerLat = 0;
 		let centerLng = 0;
 		if (props.selected && props.pins && props.pins[props.selected]) {
-			centerLat = props.pins[props.selected].lat;
-			centerLng = props.pins[props.selected].lng
+			centerLat = props.pins[props.selected].coordinate.latitude;
+			centerLng = props.pins[props.selected].coordinate.longitude;
 		} else if (props.pins && props.pins[0]) {
-			centerLat = props.pins[0].lat;
-			centerLng = props.pins[0].lng
+			centerLat = props.pins[0].coordinate.latitude;
+			centerLng = props.pins[0].coordinate.longitude
         }
         let pins = props.pins;
         pins = pins || [];
@@ -24,13 +24,13 @@ import { maps } from "../../config"
 					defaultZoom={ 13 }
 					center={{lat: centerLat, lng: centerLng}}>
                     {props.children}
-                    {pins.map(({lat, lng, key, emphasis}, index) =>
+                    {pins.map(({lat, coordinate, key, emphasis}, index) =>
 						(<MapPinBasic
 							key={index}
 							pinId={ index }
 							emphasis={ index === props.selected }
-							lat={ lat }
-							lng={ lng }
+							lat={ coordinate.latitude }
+							lng={ coordinate.longitude }
 							interactionHandler={props.selectionCallback}/>))}
 				</GoogleMapReact>
 			</div>

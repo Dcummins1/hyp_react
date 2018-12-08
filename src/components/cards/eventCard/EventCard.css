@@ -29,6 +29,9 @@
     width: 100px;
     border: 2px solid #272c34;
     border-radius: 5px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 .eventDetail {
     color: #736b6b;

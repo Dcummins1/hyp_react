@@ -43,12 +43,12 @@ function mapDispatchToProps (dispatch) {
 class DiscoveryFormChip extends React.Component {
     constructor (props) {
         super(props);
-        if (!props.areas || props.areas.length == 0) {
+        if (!props.areas || props.areas.length === 0) {
             db.getCollection("areas").then((areas) => {
                 props.initAreas(areas);
               });
         }
-        if (!props.tags || props.tags.length == 0) {
+        if (!props.tags || props.tags.length === 0) {
             db.getCollection("tags").then((tagNames) => {
                 var tags = [];
                 for(let tag in tagNames) {

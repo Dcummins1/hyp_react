@@ -1,7 +1,9 @@
 const INITIAL_STATE = {
     areas: [],
     selectedArea: null,
-    tags: []
+    tags: [],
+    results: [],
+    focusedResult: 0
   };
   
   const applySetSelectedArea = function (state, action) {
@@ -38,6 +40,20 @@ const INITIAL_STATE = {
     }
   };
 
+  const applyNewSelectdResult = function (state, action) {
+    return {
+      ...state,
+      focusedResult: action.index
+    }
+  };
+
+  const applyNewSearchResults = function (state, action) {
+    return {
+      ...state,
+      results: action.results
+    }
+  }
+
   function searchReducer(state = INITIAL_STATE, action) {
     switch(action.type) {
       case 'CURRENT_AREA_SET' : {
@@ -51,6 +67,12 @@ const INITIAL_STATE = {
       }
       case 'TAG_SELECTED' : {
         return applyTagSelected(state, action);
+      }
+      case 'PROCESS_EVENT_SELECTION' : {
+        return applyNewSelectdResult(state, action);
+      }
+      case 'SEARCH_RESULTS_UPDATED' : {
+        return applyNewSearchResults(state, action);
       }
       default : return state;
     }

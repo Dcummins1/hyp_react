@@ -25,16 +25,20 @@ export class Carousel extends Component {
   }
 
   render() {
-    return (
-      <div className="carouselRoot" ref={this.myRef}>
-       <CircularSwipableViews
-          index={this.props.selected}
-          className="carouselSlider"
-          onChangeIndex={this.handleStepChange}
-          items={this.props.items}>
-       </CircularSwipableViews>
-      </div>
-    );
+    if (this.props.items.length >= 1) {
+      return (
+        <div className="carouselRoot" ref={this.myRef}>
+         <CircularSwipableViews
+            index={this.props.selected}
+            className="carouselSlider"
+            onChangeIndex={this.handleStepChange}
+            items={this.props.items}>
+         </CircularSwipableViews>
+        </div>
+      );
+    }
+    return (<div className="carouselRoot">No results found. Please try with different search criteria.</div>);
+    
   }
 }
 
