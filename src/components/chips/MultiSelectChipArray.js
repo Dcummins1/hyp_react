@@ -14,7 +14,10 @@ const styles = theme => ({
     margin: theme.spacing.unit / 2,
   },
 });
-
+/**
+ * TODO: there must be a way in react to make this extend some kind of form value widget/ multiselect widget
+ * this would help with accesibility and use in forms
+ */
 class MultiSelectChipsArray extends React.Component {
   render() {
     const { classes } = this.props;

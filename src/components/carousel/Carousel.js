@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import CircularSwipableViews from './CircularSwipableViews';
 import "./Carousel.css"
 
+/**
+ * TODO: think we can remove this class
+ */
 
 export class Carousel extends Component {
   constructor(props) {

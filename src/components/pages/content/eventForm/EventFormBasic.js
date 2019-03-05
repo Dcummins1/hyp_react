@@ -51,6 +51,7 @@ class EventForm extends Component {
     handleFormSubmit (e) {
         e.preventDefault();
         e.stopPropagation();
+        //TODO: maybe this could be better done as a single page with dynamic content
         this.props.history.push(routes.EVENT_FORM_TAGS);
     }
    

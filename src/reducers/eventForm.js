@@ -1,3 +1,4 @@
+// sample data for checking statefulness
 const INITIAL_STATE = {
     placesSearchText: "",
     eventName: "Sam's Party!",

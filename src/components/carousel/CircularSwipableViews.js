@@ -7,6 +7,10 @@ import "./CircularSwipeableViews.css";
 
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
+/**
+ * TODO: there is a probmel with the animation on reaching list end, and a problem if you bring the next item the whole way into view. All in all a bit weird
+ * easiest thing to do would be to stop the carousel goung from length - 1 to 0, i.e. not circular
+ */
 export class CircularSwipableViews extends Component {
   constructor(props) {
     super(props);

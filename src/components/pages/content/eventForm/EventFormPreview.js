@@ -6,6 +6,11 @@ import EventCardLarge from '../../../cards/eventCard/EventCardLarge'
 import Button from '@material-ui/core/Button';
 import './EventForm.css';
 
+/**
+ * This is kind of a preview for the in-map style event card. 
+ * There should probably be a more complete event card where we can make the image a lot bigger
+ */
+
 function mapStateToProps (state) {
     return {
         image: state.eventFormState.imageURL,

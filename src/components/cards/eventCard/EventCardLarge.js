@@ -6,6 +6,9 @@ import AlarmIcon from '@material-ui/icons/Alarm';
 import PlaceIcon from '@material-ui/icons/Place';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
+/**
+ * this really just copies the small event card. There is space for a better event card that uses the full screen better (e.g. bigger image, map)
+ */
     function truncate(string){
         if (string.length > 30)
         return string.substring(0,30)+'...';

@@ -1,4 +1,5 @@
 import React from 'react';
+//TODO: update this to use the new material ui. This is basically a copy of a third party lib. needs to be adapted, probably credited. May have to give them a pull request
 import { AutoComplete } from 'material-ui';
 import PropTypes from 'prop-types';
 import { maps } from '../../../config';
@@ -14,6 +15,7 @@ class GooglePlaceAutocomplete extends React.Component {
 
   componentDidMount() {
     var script = document.getElementById("placesScriptTag");
+    //TODO: formalize this api loading into a helper class. I think we have the possibility of loading the api multiple times here, which is bad.
     if (!script) {
         const s = document.createElement('script');
         s.type = 'text/javascript';

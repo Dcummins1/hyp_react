@@ -12,7 +12,10 @@ const styles = theme => ({
     margin: theme.spacing.unit / 2,
   },
 });
-
+/**
+ * TODO: there must be a way in react to make this extend some kind of form value widget/ dropdown widget
+ * this would help with accesibility and use in forms
+ */
 class SingleSelectChipsArray extends React.Component {
   render() {
     const { classes } = this.props;

@@ -31,8 +31,10 @@ class ImageUpload extends React.Component {
   }
   handleUpload(file) {
     if (this.state.loading) {
+      //TODO: incorperate image here for write permissions, and for image reuse (this would save a lot on hosting potentially)
       const storagePromise = storage.uploadImage(file,  {user: "sam", folder: this.props.folder});
       storagePromise.then(function (snapshot) {
+        //TODO: generalize this? 
         const storageLocation = "gs://" + snapshot.metadata.bucket + "/" + snapshot.metadata.fullPath;
         storage.getImageUrl(storageLocation).then(function (url) {
           if (this.props.imageUpdated) {

@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import './EventForm.css';
 import ImageUpload from '../../../formElements/imageUpload/ImageUpload';
 
+/**
+ * image upload, and save to cloud firestore.
+ */
 function mapStateToProps (state) {
     return {
         imageLocation: state.eventFormState.imageLocation,

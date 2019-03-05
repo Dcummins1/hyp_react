@@ -1,5 +1,5 @@
 import React from 'react'
-//google-map-react very limited. will probably have to move to https://tomchentw.github.io/react-google-maps/#googlemap at some point
+//TODO: google-map-react very limited. will probably have to move to https://tomchentw.github.io/react-google-maps/#googlemap at some point
 import GoogleMapReact from 'google-map-react'
 import "./Map.css"
 import MapPinBasic from "./pins/MapPinBasic"
