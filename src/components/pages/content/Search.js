@@ -23,7 +23,10 @@ function mapDispatchToProps (dispatch) {
 }
 
 class SearchResultsPage extends Component {
-
+  constructor (props) {
+    super(props);
+    this._updateSearch();
+  }
   componentWillReceiveProps (nextProps) {
     if (nextProps.selectedArea !== this.props.selectedArea ||
       nextProps.tags !== this.props.tags) {
@@ -32,8 +35,8 @@ class SearchResultsPage extends Component {
   }
 
   _updateSearch () {
-    db.getCollection("events").then((areas) => {
-      this.props.updateSearchResults(areas);
+    db.getCollection("events").then((res) => {
+      this.props.updateSearchResults(res);
     });
   }
 

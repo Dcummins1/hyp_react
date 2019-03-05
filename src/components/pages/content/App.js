@@ -13,12 +13,29 @@ import HomePage from './Home';
 import SearchResultsPage from './Search'
 import AccountPage from '../admin/Account';
 import AdminPage from '../admin/Admin';
+import EventFormPage from '../content/eventForm/EventFormBasic';
+import EventFormTagsPage from '../content/eventForm/EventFormTags';
+import EventFormImagePage from '../content/eventForm/EventFormImage';
+import EventFormPreviewPage from './eventForm/EventFormPreview';
 
 import * as routes from '../../../constants/routes';
 import withAuthentication from '../../util/withAuthentication';
 import './App.css'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
+// const TransactionList = ({transactions}) => {
+//   return (
+//     <MuiThemeProvider>
+//       <Table>
+// ...
+//       </Table>
+//     </MuiThemeProvider>
+//   );
+// };
+
 const App = () =>
+<MuiThemeProvider>
   <Router>
     <div className="root">
       {/* <Navigation /> */}
@@ -35,9 +52,14 @@ const App = () =>
         <Route exact path={routes.ACCOUNT} component={AccountPage} />
         <Route exact path={routes.ADMIN} component={AdminPage} />
         <Route exact path={routes.SEARCH} component={SearchResultsPage} />
+        <Route exact path={routes.EVENT_FORM} component={EventFormPage} />
+        <Route exact path={routes.EVENT_FORM_TAGS} component={EventFormTagsPage} />
+        <Route exact path={routes.EVENT_FORM_IMAGE} component={EventFormImagePage} />
+        <Route exact path={routes.EVENT_FORM_PREVIEW} component={EventFormPreviewPage} />
       </main>
       <footer></footer>
     </div>
   </Router>
+  </MuiThemeProvider>
 
 export default withAuthentication(App);

@@ -1,15 +1,18 @@
 .eventCardRoot {
     height: 150px;
-    display: flex;
     flex-direction: column;
     margin: 10px 5px 10px 5px;
     border-radius: 3px;
     border-top: 4px solid #272c34;
     color: #272c34;
+    overflow: auto;
+}
+.eventCardLarge {
+    height: auto;
+    flex: 1;
 }
 .MainSegment {
     display: flex;
-    flex: 1;
     padding: 5px 10px;
     box-sizing: border-box;
     flex-direction: row;
@@ -17,12 +20,16 @@
 .tags {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; 
 }
 .tagChip {
     margin-right: 5px;
+    margin-top: 5px
 }
 .eventDetails {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .eventImage {
     height: 100px;
@@ -35,4 +42,21 @@
 }
 .eventDetail {
     color: #736b6b;
+    margin-bottom: 5px;
+}
+.eventLabel {
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+.blurb {
+    padding: 10px;
+}
+.eventCardMap {
+    height: 200px;
+}
+
+.detailsIcon {
+    font-size: 16px;
+    padding-right: 5px;
 }

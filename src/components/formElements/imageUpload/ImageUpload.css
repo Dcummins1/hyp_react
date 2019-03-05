@@ -1,0 +1,22 @@
+.imageUpload {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #272c34;
+    border-radius: 5px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+.buttonBase {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+}
+.buttonIcon {
+    border-radius: 50%;
+    background-color: white;
+}

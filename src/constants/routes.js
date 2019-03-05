@@ -6,3 +6,7 @@ export const SEARCH = '/search'
 export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
+export const EVENT_FORM = '/event-form';
+export const EVENT_FORM_TAGS = '/event-form-tags';
+export const EVENT_FORM_IMAGE = '/event-form-image';
+export const EVENT_FORM_PREVIEW = '/event-form-preview';

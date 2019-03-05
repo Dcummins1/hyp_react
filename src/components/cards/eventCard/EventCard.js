@@ -36,7 +36,7 @@ import "./EventCard.css"
                         {
                             this.props.tags.map((data, index) => {
                                 let color = "default";
-                                if (index < 2) {
+                                if (index <= 2) {
                                     if (data.type === 'genre') {
                                         color = "secondary";
                                     } else if (data.type === "sponsor") {
@@ -50,8 +50,8 @@ import "./EventCard.css"
                                         label={data.name}
                                         />
                                     );
-                                } else if (index === 2 && this.props.tags.length > 3) {
-                                    var message = "+" + (this.props.tags.length - 3);
+                                } else if (index === 2 && this.props.tags.length >= 3) {
+                                    var message = "+" + (this.props.tags.length - 2);
                                     return (
                                         <Chip
                                         {...{color}}

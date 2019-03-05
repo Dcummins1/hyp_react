@@ -1,5 +1,4 @@
 import {storage} from './firebase';
-import { promises } from 'fs';
 
 // User API
 const imageMap = {};
@@ -36,4 +35,12 @@ export const getImageUrl = (storageLocation) => {
     }
     return null;
     });
+}
+
+export const uploadImage = (image, metadata) => {
+    // Create a root reference
+    var ref = storage.ref();
+    var imgRef = ref.child('eventImages/' + image.name);
+    return imgRef.put(image, metadata);
+      
 }

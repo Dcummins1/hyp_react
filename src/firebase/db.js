@@ -31,5 +31,9 @@ export const getCollection = (collectionName) => {
   
 }
 
+export const addDocument = (collectionName, data) => {
+  return firestore.collection(collectionName).add(data);
+}
+
 
 // Other Entity APIs ...
