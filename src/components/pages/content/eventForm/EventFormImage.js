@@ -20,7 +20,6 @@ function mapDispatchToProps (dispatch) {
     return {
         imageUpdated: (imageDetails) => {
             const action = {type: "EVENT_FORM_IMAGE_UPDATED", imageDetails};
-            console.log(imageDetails)
             dispatch(action);
         }
     };

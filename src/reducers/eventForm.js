@@ -1,24 +1,19 @@
 // sample data for checking statefulness
 const INITIAL_STATE = {
     placesSearchText: "",
-    eventName: "Sam's Party!",
+    eventName: "",
     location: null,
-    venue: "The Workman's Club",
-    date: "2019-02-07",
-    price: "10",
-    startTime: "19:30",
-    blurb: "It's Going to be great, please Come. There will be live music from 8:30 and then a Dj til late. Lots of great drink offers including but not limited to Guiness at regular price, and mojitos at only slightly above regular price.",
+    coordinate: null,
+    venue: "",
+    date: "",
+    price: "",
+    startTime: "",
+    blurb: "",
     tags: [],
     selectedTags: [],
     imageLocation: "",
-    imageURL: "https://firebasestorage.googleapis.com/v0/b/hypbackend.appspot.com/o/eventImages%2Fparty.jpeg?alt=media&token=17ea7250-c9e6-43f1-b91f-26a3edcee5c0"
+    imageURL: ""
   };
-  INITIAL_STATE.selectedTags = [
-    {name: "Drink Promos", type: "drinks", selected: false, index: "2"},
-    {name: "Electronic", type: "genre", selected: false, index: "3"},
-    {name: "Free Entry", selected: true, index: "4"},
-    {name: "Late Bar", type: "drinks", selected: true, index: "5"}
-  ];
   const applySetPlaceSearchText = (state, action) => ({
     ...state,
     placesSearchText: action.placesSearchText
@@ -65,8 +60,10 @@ const INITIAL_STATE = {
   };
 
   const applyPlaceSelected = function (state, action) {
-    console.log(action);
-    return {...state, location: action.location};
+    //fragile, some try catch/ error checks...
+    const location = action.location.geocodeData[0].geometry.location;
+    var coordinate = {lat: location.lat(), lng: location.lng()};
+    return {...state, location: action.location, coordinate};
   }
   
   function eventFormReducer(state = INITIAL_STATE, action) {
@@ -88,6 +85,9 @@ const INITIAL_STATE = {
       }
       case 'EVENT_FORM_PLACE_SELECTED' : {
         return applyPlaceSelected(state, action);
+      }
+      case 'EVENT_FORM_UNSET' : {
+        return INITIAL_STATE;
       }
       default : return state;
     }

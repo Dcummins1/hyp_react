@@ -47,6 +47,13 @@ const StandardAuth = (props) =>
       </ListItemIcon>
       <ListItemText inset primary="Account" />
     </MenuItem>,
+    <MenuItem className="menuItem" key="newEvent"
+    onClick={ (e) => props.handleMenuSelection(e, routes.EVENT_FORM)}>
+      <ListItemIcon className="icon">
+        <AccountBoxIcon />
+      </ListItemIcon>
+      <ListItemText inset primary="Create New Event" />
+    </MenuItem>,
     <MenuItem className="menuItem" onClick={auth.doSignOut} key="signout">
       <ListItemIcon className="icon">
         <ClearIcon />

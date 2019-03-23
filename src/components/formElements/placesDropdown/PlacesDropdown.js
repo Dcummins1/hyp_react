@@ -5,8 +5,12 @@ import PropTypes from 'prop-types';
 import { maps } from '../../../config';
 
 class GooglePlaceAutocomplete extends React.Component {
+
+  autocompleteService = null;
+  geocoder = null;
   constructor(props) {
     super(props);
+    this.onNewRequest = this.onNewRequest.bind(this);
     this.state = {
       dataSource: [],
       data: []
@@ -24,6 +28,7 @@ class GooglePlaceAutocomplete extends React.Component {
         s.src="https://maps.googleapis.com/maps/api/js?key=" + maps.apiKey + "&libraries=places&callback=mapsCallback";
         window.mapsCallback = function () {
             this.autocompleteService = new window.google.maps.places.AutocompleteService();
+            this.geocoder = new window.google.maps.Geocoder();
         }.bind(this);
         document.head.appendChild(s);
       } 
@@ -90,8 +95,10 @@ class GooglePlaceAutocomplete extends React.Component {
       return false;
     }
     const data = this.previousData || this.state.data;
-    //this.placesService.getDetails(data[index], function (det) {debugger;});
-    this.props.onNewRequest(data[index], searchText, index);
+    var geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({placeId: data[index].place_id}, (geocodeData) => {
+      this.props.onNewRequest({searchData: data[index], geocodeData}, searchText, index);
+    });
   }
 
   onInputChange(searchText, dataSource, params) {

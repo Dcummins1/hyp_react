@@ -1,4 +1,5 @@
 import { db, firestore } from './firebase';
+import firebase from 'firebase/app';
 
 // User API
 
@@ -35,5 +36,15 @@ export const addDocument = (collectionName, data) => {
   return firestore.collection(collectionName).add(data);
 }
 
+
+//Make immutable?
+export const addEvent = (eventData) => {
+  const colRef = firestore.collection("events");
+  eventData.coordinate = new firebase.firestore.GeoPoint(eventData.coordinate.lat, eventData.coordinate.lng);
+  eventData.location = JSON.stringify(eventData.location);
+  return colRef.add(eventData).then(() => {
+    console.log("event added");
+  });
+}
 
 // Other Entity APIs ...
