@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { auth, db } from '../../../firebase';
 import * as routes from '../../../constants/routes';
+import * as ROLES from '../../../constants/roles';
 
 
 const SignUpPage = ({ history }) =>
@@ -16,6 +17,7 @@ const INITIAL_STATE = {
     email: '',
     passwordOne: '',
     passwordTwo: '',
+    isPromoter: false,
     error: null,
   };
 
@@ -35,7 +37,13 @@ class SignUpForm extends Component {
         username,
         email,
         passwordOne,
+        isPromoter,
       } = this.state;
+      const roles = [];
+
+      if (isPromoter) {
+        roles.push(ROLES.PROMOTER);
+      }
 
       const {
         history,
@@ -44,7 +52,7 @@ class SignUpForm extends Component {
       auth.doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
            // Create a user in your own accessible Firebase Database too
-        db.doCreateUser(authUser.user.uid, username, email)
+        db.doCreateUser(authUser.user.uid, username, email, roles)
         .then(() => {
           this.setState({ ...INITIAL_STATE });
           history.push(routes.HOME);
@@ -59,7 +67,11 @@ class SignUpForm extends Component {
   
       event.preventDefault();
 
+
   }
+  onChangeCheckbox = event => {
+    this.setState({ [event.target.name]: event.target.checked });
+  };
 
   render() {
     const {
@@ -67,6 +79,7 @@ class SignUpForm extends Component {
         email,
         passwordOne,
         passwordTwo,
+        isPromoter,
         error,
       } = this.state;
 
@@ -102,6 +115,15 @@ class SignUpForm extends Component {
           type="password"
           placeholder="Confirm Password"
         />
+        <label>
+          Promoter:
+          <input
+            name="isPromoter"
+            type="checkbox"
+            checked={isPromoter}
+            onChange={this.onChangeCheckbox}
+          />
+        </label>
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>

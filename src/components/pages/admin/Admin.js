@@ -4,6 +4,7 @@ import { compose } from 'recompose';
 
 import withAuthorization from '../../util/withAuthorization';
 import { db } from '../../../firebase';
+import * as roles from '../../../constants/roles';
 
 
 class AdminPage extends Component {
@@ -45,7 +46,7 @@ const mapStateToProps = (state) => ({
   const mapDispatchToProps = (dispatch) => ({
     onSetUsers: (users) => dispatch({ type: 'USERS_SET', users }),
   });
-const authCondition = (authUser) => !!authUser && authUser.role === 'user';
+const authCondition = (authUser) => !!authUser && authUser.roles.includes(roles.PROMOTER);
 
 export default compose(
     withAuthorization(authCondition),

@@ -1,13 +1,14 @@
 import { db, firestore } from './firebase';
 import firebase from 'firebase/app';
 
+
 // User API
 
-export const doCreateUser = (id, username, email) =>
+export const doCreateUser = (id, username, email, roles) =>
   db.ref(`users/${id}`).set({
     username,
     email,
-    role : 'user',
+    roles,
   });
 
 export const onceGetUsers = () =>
