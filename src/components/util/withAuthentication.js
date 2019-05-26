@@ -30,3 +30,4 @@ const withAuthentication = (Component) => {
 }
 
 export default withAuthentication;
+

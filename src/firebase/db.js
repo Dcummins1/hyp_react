@@ -8,6 +8,7 @@ export const doCreateUser = (id, username, email) =>
     username,
     email,
     role : 'user',
+    request : false,
   });
 
 export const onceGetUsers = () =>
@@ -48,3 +49,22 @@ export const addEvent = (eventData) => {
 }
 
 // Other Entity APIs ...
+
+export const getUserRequests = (collectionName) => {
+  return new Promise((resolve) => {
+    const colRef = firestore.collection(collectionName);
+    colRef.get().then((col) => {
+      const dataProms = [];
+      const data = [];
+      for (const doc in col.docs) {
+        dataProms.push(col.docs[doc].ref.get().then((docData) => {
+          data.push(docData.data());
+        }));
+      }
+      Promise.all(dataProms).then(() => {
+        resolve(data)
+      });
+    });
+  });
+  
+}
